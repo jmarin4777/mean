@@ -57,12 +57,13 @@ function userLanguages(x){
     }
     return str
 }
-console.log(userLanguages(users))
+// console.log(userLanguages(users))
 
-// function userLanguages(someArray){
+// function userLanguages2(someArray){
 //     for (var i = 0; i<someArray.length;i++){
+//         var int = []
 //         for (var key in someArray[i]['interests']){
-//             int = someArray[i]['interests'][key];
+//             int += someArray[i]['interests'][key];
 //         }
 //         name = someArray[i].fname +' '+ someArray[i].lname
 //         lang = someArray[i].languages
@@ -75,3 +76,4 @@ console.log(userLanguages(users))
 //     }
 //     return someArray
 // }
+// console.log(userLanguages2(users))

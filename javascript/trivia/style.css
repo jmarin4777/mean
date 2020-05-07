@@ -1,0 +1,32 @@
+.question{
+    border: 1px solid black;
+    border-radius: 16px;
+}
+
+.video{
+    background-color: blue;
+}
+
+.pc{
+    background-color: green;
+}
+
+.myth{
+    background-color: crimson;
+}
+
+.rows{
+    height: 250px;
+}
+
+.center{
+    margin-top: 75px;
+}
+
+.inserted{
+    font-size: small;
+}
+
+.gray{
+    background-color: gray;
+}
