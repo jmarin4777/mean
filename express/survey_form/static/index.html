@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-4 text-center">Survey Form</h1>
+        <hr>
+        <form class="" action="/result" method="POST">
+            <div class="row form-group justify-content-around align-items-center">
+                <label class="col-md-3" for="name">Your Name:</label>
+                <input class="form-control col-md-3" type="text" name="name" id="name" required>
+            </div>
+            <div class="row form-group justify-content-around align-items-center">
+                <label class="col-md-3" for="dojo">Dojo Location:</label>
+                <select class="form-control col-md-3" name="dojo" id="dojo" required>
+                    <option>Dallas</option>
+                    <option>Tulsa</option>
+                    <option>Seattle</option>
+                </select>
+            </div>
+            <div class="row form-group justify-content-around align-items-center">
+                <label class="col-md-3" for="lang">Favorite Language:</label>
+                <select class="form-control col-md-3" name="lang" id="lang" required>
+                    <option>MEAN</option>
+                    <option>Python</option>
+                    <option>Ruby</option>
+                </select>
+            </div>
+            <div class="row form-group justify-content-around align-items-center">
+                <label class="col-md-3" for="comment">Comment (optional):</label>
+                <textarea class="form-control col-md-3" name="comment" id="comment" rows="3"></textarea>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <input class="form-control btn btn-primary col-md-3" type="submit" value="Submit">
+            </div>
+        </form>
+        <hr>
+    </div>
+</body>
+</html>

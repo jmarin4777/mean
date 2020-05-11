@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-4">Submitted Information:</h1>
+        <hr>
+        <div class="row justify-content-around">
+            <p class="lead col-md-3">Name:</p>
+            <p class="lead col-md-3"><%= result.name %></p>
+        </div>
+        <div class="row justify-content-around">
+            <p class="lead col-md-3">Dojo Location:</p>
+            <p class="lead col-md-3"><%= result.dojo %></p>
+        </div>
+        <div class="row justify-content-around">
+            <p class="lead col-md-3">Favorite Language:</p>
+            <p class="lead col-md-3"><%= result.lang %></p>
+        </div>
+        <div class="row justify-content-around">
+            <p class="lead col-md-3">Comment:</p>
+            <p class="lead col-md-3"><%= result.comment %></p>
+        </div>
+        <hr>
+        <div class="row">
+            <a class="col-md-3" href="/">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>
