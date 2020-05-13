@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Board</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="col text-center display-4">Message Board</h1>
+        </div>
+        <hr>
+        <div class="row mb-2">
+            <h4 class="col text-center">Post a Message</h4>
+        </div>
+        <% if(errors.length != 0) { %>
+            <div class="row justify-content-center mb-2"><ul class="col-md-3 text-center">Errors:
+                <% for(var error of errors) { %>
+                    <li><%= error %></li>
+                <% } %>
+            </ul></div>
+        <% } %>
+        <form action="/messages" method="POST">
+            <div class="form-group row align-items-center justify-content-center">
+                <label for="name" class="col-md-3 lead">Name:</label>
+                <input type="text" class="form-control col-md-3" name="name" id="name">
+            </div>
+            <div class="form-group row align-items-center justify-content-center">
+                <label for="message" class="col-md-3 lead">Message:</label>
+                <textarea name="message" class="form-control col-md-3" rows="3" id="message"></textarea>
+            </div>
+            <div class="form-group row justify-content-center">
+                <input type="submit" class="form-control col-md-2 btn btn-dark" value="Post">
+            </div>
+        </form>
+        <hr>
+        <% for (var message of messages) { %>
+            <div class="row">
+                <p class="lead col-12">Name: <%= message.name %></p>
+                <p class="lead col-12">Message: <%= message.message %></p>
+            </div>
+            <% for(var comment of message.comments) { %>
+                <div class="row">
+                    <p class="offset-md-1 col-md-10 border-top pt-2">Name: <%= comment.name %></p>
+                    <div class="col-md-1"></div>
+                    <p class="offset-md-1 col-md-10 border-bottom pb-2">Comment: <%= comment.comment %></p>
+                </div>
+            <% } %>
+            <form class="mt-2" action="/messages/<%= message._id %>/comments" method="POST">
+                <div class="form-group row align-items-center">
+                    <label for="cname" class="offset-md-1 col-md-2">Name:</label>
+                    <input type="text" class="form-control offset-md-1 col-md-3" name="name" id="cname">
+                </div>
+                <div class="form-group row align-items-center">
+                    <label for="comment" class="offset-md-1 col-md-2">Comment:</label>
+                    <textarea name="comment" class="form-control offset-md-1 col-md-3" rows="3" id="comment"></textarea>
+                </div>
+                <div class="form-group row">
+                    <input type="submit" class="form-control offset-md-3 col-md-2 btn btn-dark" value="Comment">
+                </div>
+            </form>
+            <hr>
+        <% } %>
+    </div>
+</body>
+</html>
