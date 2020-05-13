@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Prairie Dog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="col text-center display-4">Add a Prairie Dog</h1>
+        </div>
+        <hr>
+        <% if(errors) { %>
+            <div class="row justify-content-center"><ul class="col-md-3 text-center">
+                <% for(var error of errors) { %>
+                    <li><%= error %></li>
+                <% } %>
+            </ul></div>
+        <% } %>
+        <div class="row justify-content-center my-4 align-items-center">
+            <p class="col-md-3 lead">Image Test:</p>
+            <img class="col-md-3" id="copy" src="" alt="a prairie dog" style="width: 300px; height: 300px;" onerror="this.src='../images/your_image_here.jpg'">
+        </div>
+        <form action="/prairies" method="POST">
+            <div class="form-group row align-items-center justify-content-center">
+                <label for="name" class="col-md-3 lead">Name:</label>
+                <input type="text" class="form-control col-md-3" name="name" id="name"> 
+            </div>
+            <div class="form-group row align-items-center justify-content-center">
+                <label for="hobby" class="col-md-3 lead">Favorite Hobby:</label>
+                <input onpa type="text" class="form-control col-md-3" name="hobby" id="hobby"> 
+            </div>
+            <div class="form-group row align-items-center justify-content-center">
+                <label for="image" class="col-md-3 lead">Image Address:</label>
+                <input onpa type="text" class="form-control col-md-3" name="image" id="image"> 
+            </div>
+            <div class="form-group row justify-content-center">
+                <input type="submit" class="form-control col-md-3 btn btn-primary" value="Add">
+            </div>
+        </form>
+        <hr>
+        <a href="/">Home</a>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#image").keyup(copy)
+            $("#image").on('paste', copy)
+        })
+        function copy() {
+            var typed = $(this).val();
+            $("#copy").attr('src', typed);
+        }
+    </script>
+</body>
+</html>
