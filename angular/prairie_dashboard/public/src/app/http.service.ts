@@ -7,12 +7,13 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
 
   constructor(private _http: HttpClient) {
-    this.getPrairies();
-    this.showPrairie();
+    // this.getPrairies();
+    // this.showPrairie();
   };
   getPrairies(){
-    let tempObservable = this._http.get('/prairies');
-    tempObservable.subscribe(data => console.log("Got all the prairie dogs!", data));
+    // let tempObservable = this._http.get('/prairies');
+    // tempObservable.subscribe(data => console.log("Got all the prairie dogs!", data));
+    return this._http.get('/prairies')
   }
 
   showPrairie(){
