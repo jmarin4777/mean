@@ -18,19 +18,31 @@
         </div>
         <hr>
           <div *ngFor="let prairie of prairies" class="row align-items-center my-4">
-              <div class="lead col-md-3 text-right">
-                  <span>&#8226;</span>
-                  <a href="/prairies/{{prairie._id}}">
-                      <img class="ml-2" [src]="prairie.image" alt="{{prairie.name}} the prairie dog" style="width: 150px; height: 150px;">
-                  </a>
-              </div>
-              <p class="lead col-md-4 text-left">{{prairie.name}}</p>
-              <form class="offset-md-3 col-md-2" action="/prairies/{{prairie._id}}/destroy" method="POST">
-                  <input class="form-control btn btn-danger" type="submit" value="Remove">
-              </form>
-          </div>
+            <div class="lead col-md-3 text-right">
+                <span>&#8226;</span>
+                <img class="ml-2" [src]="prairie.image" alt="{{prairie.name}} the prairie dog" style="width: 150px; height: 150px;">
+            </div>
+            <p class="lead col-md-4 text-left">{{prairie.name}}</p>
+            <div class="offset-md-3 col-md-2">
+                <button class="btn btn-primary" (click)="show(prairie._id)">Show</button>
+            </div>
+        </div>
         <hr>
-        <a href="/prairies/new">Add a new Prairie Dog</a>
+    </div>
+    <div id="target" *ngIf="prairie" class="container">
+        <div class="row justify-content-center my-4">
+            <div class="col text-center">
+                <img [src]="prairie.image" alt="{{prairie.name}} the prairie dog" style="width: 300px; height: 300px;">
+            </div>
+        </div>
+        <div class="row">
+            <h1 class="col text-center display-4">{{prairie.name}}'s Info</h1>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+            <p class="col lead text-center mb-0">Hi, my name is {{prairie.name}}, and I love {{prairie.hobby}}</p>
+        </div>
+        <hr>
     </div>
 </body>
 </html>

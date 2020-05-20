@@ -9,7 +9,7 @@ import { HttpService } from './http.service';
 export class AppComponent {
   title = 'public';
   prairies:any = [];
-
+  prairie:any;
   constructor(private _httpService: HttpService) {};
 
   ngOnInit(){
@@ -21,6 +21,17 @@ export class AppComponent {
     observable.subscribe(data =>{
       console.log("Got all the prairie dogs!", data);
       this.prairies = data;
+    })
+  }
+
+  show(prairie_id){
+    let observable = this._httpService.showPrairie(prairie_id);
+    observable.subscribe(data =>{
+      console.log("Got this prairie dog's info!", data);
+      this.prairie = data;
+      setTimeout(() => {
+        window.scrollTo(0,document.body.scrollHeight);
+      }, 100);
     })
   }
 }

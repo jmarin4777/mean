@@ -13,12 +13,12 @@ export class HttpService {
   getPrairies(){
     // let tempObservable = this._http.get('/prairies');
     // tempObservable.subscribe(data => console.log("Got all the prairie dogs!", data));
-    return this._http.get('/prairies')
+    return this._http.get('/prairies');
   }
 
-  showPrairie(){
-    var id = '5ebc085c0fc8240b58602f16'
-    let tempObservable = this._http.get('/prairies/' + id);
-    tempObservable.subscribe(data => console.log("Found a prairie dog!", data));
+  showPrairie(prairie_id){
+    // let tempObservable = this._http.get('/prairies/' + prairie_id);
+    // tempObservable.subscribe(data => console.log("Found a prairie dog!", data));
+    return this._http.get('prairies/' + prairie_id);
   }
 }
