@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { HttpService } from './http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PrairieComponent } from './prairie/prairie.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PrairieComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,17 @@
+<form (submit)="update(prairieToEdit._id)">
+    <div class="form-group row justify-content-center align-items-center">
+        <label class="col-md-3">Name:</label>
+        <input type="text" class="col-md-3 form-control" name="editPrairie.name" [(ngModel)]="editPrairie.name">
+    </div>
+    <div class="form-group row justify-content-center align-items-center">
+        <label class="col-md-3">Hobby:</label>
+        <input type="text" class="col-md-3 form-control" name="editPrairie.hobby" [(ngModel)]="editPrairie.hobby">
+    </div>
+    <div class="form-group row justify-content-center align-items-center">
+        <label class="col-md-3">Image URL:</label>
+        <input type="text" class="col-md-3 form-control" name="editPrairie.image" [(ngModel)]="editPrairie.image">
+    </div>
+    <div class="form-group row justify-content-center align-items-center">
+        <input type="submit" class="btn btn-primary col-md-3" value="Update">
+    </div>
+</form>

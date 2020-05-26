@@ -10,16 +10,13 @@ export class AppComponent implements OnInit {
   title = 'public';
   prairies:any = [];
   prairie:any;
-  newPrairie:any;
   displayEdit:boolean;
-  editPrairie:any;
+  newPrairie:any;
   constructor(private _httpService: HttpService) {};
 
   ngOnInit(){
     this.getPrairiesFromService();
     this.newPrairie = {name: "", hobby: "", image: ""};
-    this.displayEdit = false;
-    this.editPrairie = {name:"", hobby:""};
   }
 
   getPrairiesFromService(){
@@ -51,29 +48,15 @@ export class AppComponent implements OnInit {
     })
   }
 
-  edit(){
-    this.displayEdit = true;
-    this.editPrairie = {name: this.prairie.name, hobby: this.prairie.hobby};
-    setTimeout(() => {
-      window.scrollTo(0,document.body.scrollHeight);
-    }, 100);
-  }
-
-  update(prairie_id){
-    let observable = this._httpService.updatePrairie(prairie_id, this.editPrairie);
-    observable.subscribe(data =>{
-      console.log("Updated a prairie dog!", data);
-      this.prairie = data;
-    })
-    this.displayEdit = false;
-    this.editPrairie = {name: "", hobby: ""};
-  }
-
   destroy(prairie_id){
     let observable = this._httpService.destroyPrairie(prairie_id);
     observable.subscribe(data =>{
       console.log("Deleted a prairie dog!", data);
       this.getPrairiesFromService();
     })
+  }
+
+  updatedPrairie(){
+    this.getPrairiesFromService();
   }
 }

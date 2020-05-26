@@ -48,40 +48,7 @@
         </div>
         <hr>
     </div>
-    <div *ngIf="prairie" class="container">
-        <div class="row justify-content-center my-4">
-            <div class="col text-center">
-                <img [src]="prairie.image" alt="{{prairie.name}} the prairie dog" style="width: 300px; height: 300px;">
-            </div>
-        </div>
-        <div class="row text-center">
-                <h1 class="col display-4">{{prairie.name}}'s Info</h1>
-        </div>
-        <div class="row text-center">
-            <button class="col btn btn-link" (click)="edit()">Edit</button>
-        </div>
-        <hr>
-        <div class="row justify-content-center">
-            <p class="col lead text-center mb-0">Hi, my name is {{prairie.name}}, and I love {{prairie.hobby}}</p>
-        </div>
-        <hr>
-        <div *ngIf="displayEdit">
-            <form (submit)="update(prairie._id)">
-                <div class="form-group row justify-content-center align-items-center">
-                    <label class="col-md-3" for="name">Name:</label>
-                    <input type="text" class="col-md-3 form-control" name="editPrairie.name" [(ngModel)]="editPrairie.name">
-                </div>
-                <div class="form-group row justify-content-center align-items-center">
-                    <label class="col-md-3" for="hobby">Hobby:</label>
-                    <input type="text" class="col-md-3 form-control" name="editPrairie.hobby" [(ngModel)]="editPrairie.hobby">
-                </div>
-                
-                <div class="form-group row justify-content-center align-items-center">
-                    <input type="submit" class="btn btn-primary col-md-3" value="Update">
-                </div>
-            </form>
-        </div>
-    </div>
+    <app-prairie *ngIf="prairie" [prairieToShow]="prairie" [display]="displayEdit" (updateEvent)="updatedPrairie()"></app-prairie>
 </body>
 </html>
 

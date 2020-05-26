@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row justify-content-center my-4">
+        <div class="col text-center">
+            <img [src]="prairieToShow.image" alt="{{prairieToShow.name}} the prairie dog" style="width: 300px; height: 300px;">
+        </div>
+    </div>
+    <div class="row text-center">
+            <h1 class="col display-4">{{prairieToShow.name}}'s Info</h1>
+    </div>
+    <div class="row text-center">
+        <button class="col btn btn-link" (click)="edit()">Edit</button>
+    </div>
+    <hr>
+    <div class="row justify-content-center">
+        <p class="col lead text-center mb-0">Hi, my name is {{prairieToShow.name}}, and I love {{prairieToShow.hobby}}</p>
+    </div>
+    <hr>
+    <app-edit *ngIf="display" [prairieToEdit]="prairieToShow" (updateEvent)="updatedPrairie($event)"></app-edit>
+</div>
