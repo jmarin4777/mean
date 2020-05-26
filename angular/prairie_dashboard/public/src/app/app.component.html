@@ -17,32 +17,70 @@
             <h1 class="col text-center display-4">Prairie Dogs on the Prairie</h1>
         </div>
         <hr>
-          <div *ngFor="let prairie of prairies" class="row align-items-center my-4">
+        <form (submit)=create()>
+            <div class="form-group row justify-content-center align-items-center">
+                <label class="col-md-3">Name:</label>
+                <input type="text" class="col-md-3 form-control" name="newPrairie.name" [(ngModel)]="newPrairie.name">
+            </div>
+            <div class="form-group row justify-content-center align-items-center">
+                <label class="col-md-3">Hobby:</label>
+                <input id="hobby" type="text" class="col-md-3 form-control" name="newPrairie.hobby" [(ngModel)]="newPrairie.hobby">
+            </div>
+            <div class="form-group row justify-content-center align-items-center">
+                <label class="col-md-3">Image URL:</label>
+                <input type="text" class="col-md-3 form-control" name="newPrairie.image" [(ngModel)]="newPrairie.image">
+            </div>
+            <div class="form-group row justify-content-center align-items-center">
+                <input type="submit" class="btn btn-primary col-md-3" value="Update">
+            </div>
+        </form>
+        <hr>
+        <div *ngFor="let prairie of prairies" class="row align-items-center my-4">
             <div class="lead col-md-3 text-right">
                 <span>&#8226;</span>
                 <img class="ml-2" [src]="prairie.image" alt="{{prairie.name}} the prairie dog" style="width: 150px; height: 150px;">
             </div>
             <p class="lead col-md-4 text-left">{{prairie.name}}</p>
             <div class="offset-md-3 col-md-2">
-                <button class="btn btn-primary" (click)="show(prairie._id)">Show</button>
+                <button class="btn btn-primary mr-2" (click)="show(prairie._id)">Show</button>
+                <button class="btn btn-danger" (click)="destroy(prairie._id)">Delete</button>
             </div>
         </div>
         <hr>
     </div>
-    <div id="target" *ngIf="prairie" class="container">
+    <div *ngIf="prairie" class="container">
         <div class="row justify-content-center my-4">
             <div class="col text-center">
                 <img [src]="prairie.image" alt="{{prairie.name}} the prairie dog" style="width: 300px; height: 300px;">
             </div>
         </div>
-        <div class="row">
-            <h1 class="col text-center display-4">{{prairie.name}}'s Info</h1>
+        <div class="row text-center">
+                <h1 class="col display-4">{{prairie.name}}'s Info</h1>
+        </div>
+        <div class="row text-center">
+            <button class="col btn btn-link" (click)="edit()">Edit</button>
         </div>
         <hr>
         <div class="row justify-content-center">
             <p class="col lead text-center mb-0">Hi, my name is {{prairie.name}}, and I love {{prairie.hobby}}</p>
         </div>
         <hr>
+        <div *ngIf="displayEdit">
+            <form (submit)="update(prairie._id)">
+                <div class="form-group row justify-content-center align-items-center">
+                    <label class="col-md-3" for="name">Name:</label>
+                    <input type="text" class="col-md-3 form-control" name="editPrairie.name" [(ngModel)]="editPrairie.name">
+                </div>
+                <div class="form-group row justify-content-center align-items-center">
+                    <label class="col-md-3" for="hobby">Hobby:</label>
+                    <input type="text" class="col-md-3 form-control" name="editPrairie.hobby" [(ngModel)]="editPrairie.hobby">
+                </div>
+                
+                <div class="form-group row justify-content-center align-items-center">
+                    <input type="submit" class="btn btn-primary col-md-3" value="Update">
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>
