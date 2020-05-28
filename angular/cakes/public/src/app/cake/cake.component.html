@@ -1,0 +1,21 @@
+<div class="row">
+    <h2 class="col">Baked by {{cakeToShow.baker_name}}</h2>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="bg-light p-3" style="width: 300px; height: 300px;">
+            <img class="h-100 w-100" [src]="cakeToShow.image" alt="A cake baked by {{cakeToShow.baker_name}}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <p class="lead">Average Rating: {{cakeToShow.avg}}</p>
+        <div class="overflow-auto" style="height: 270px;">
+            <hr>
+            <div *ngFor="let rating of cakeToShow.ratings">
+                <p class="lead">Rating: {{rating.rating}} Stars</p>
+                <p class="lead">Comment: {{rating.comment}}</p>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

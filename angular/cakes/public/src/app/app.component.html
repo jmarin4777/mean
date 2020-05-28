@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prairie Dogs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <h1 class="display-4 text-center">Cakes Homepage</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-4">
+        <p class="lead text-center">Submit a cake to be rated!</p>
+        <form (submit)=createCake()>
+          <div class="form-group row justify-content-center align-items-center">
+            <label class="col-md-6">Baker Name:</label>
+            <input type="text" class="col-md-6 form-control" name="baker_name" [(ngModel)]="newCake.baker_name">
+          </div>
+          <div class="form-group row justify-content-center align-items-center">
+              <label class="col-md-6">Image URL:</label>
+              <input type="text" class="col-md-6 form-control" name="image" [(ngModel)]="newCake.image">
+          </div>
+          <div class="form-group row justify-content-center align-items-center">
+              <input type="submit" class="btn btn-primary col-md-3" value="Submit">
+          </div>
+        </form>
+      </div>
+      <div class="col-md-8 overflow-auto mt-2" style="height: 450px;">
+        <div *ngFor="let cake of cakes; index as i" class="border-bottom row align-items-center text-center mb-4">
+          <div class="col-md-6">
+            <button class="btn btn-light" (click)="show(cake._id)">
+              <img [src]="cake.image" alt="A cake baked by {{cake.baker_name}}" style="width: 150px; height: 150px;">
+            </button>
+          </div>
+          <div class="col-md-6">
+            <form (submit)="createRating(i, cake._id)">
+              <div class="form-group row justify-content-center align-items-center">
+                <select class="col-md-10 form-control" name="rating" [(ngModel)]="newRating[i].rating">
+                  <option value="5">5 Stars</option>
+                  <option value="4">4 Stars</option>
+                  <option value="3">3 Stars</option>
+                  <option value="2">2 Stars</option>
+                  <option value="1">1 Star</option>
+                </select>
+              </div>
+              <div class="form-group row justify-content-center align-items-center">
+                <textarea class="col-md-10 form-control" rows="3" placeholder="Comment" name="comment" [(ngModel)]="newRating[i].comment"></textarea>
+              </div>
+              <div class="form-group row justify-content-center align-items-center">
+                <input type="submit" class="btn btn-primary col-md-6" value="Rate!">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <app-cake *ngIf="cake" [cakeToShow]="cake"></app-cake>
+  </div>
+</body>
+</html>
+<router-outlet></router-outlet>

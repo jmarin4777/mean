@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
   }
 
   show(prairie_id){
+    this.prairie = false;
     this.displayEdit = false;
     let observable = this._httpService.showPrairie(prairie_id);
     observable.subscribe(data =>{
