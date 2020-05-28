@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <h1 class="display-4 text-center">Dojo Weather Forecast</h1>
+    <hr>
+    <div class="row">
+      <button [routerLink]="['/seattle']" class="col btn btn-link">Seattle, WA</button>
+      <button [routerLink]="['/sanjose']" class="col btn btn-link">San Jose, CA</button>
+      <button [routerLink]="['/burbank']" class="col btn btn-link">Burbank, CA</button>
+      <button [routerLink]="['/dallas']" class="col btn btn-link">Dallas, TX</button>
+      <button [routerLink]="['/dc']" class="col btn btn-link">Washington DC</button>
+      <button [routerLink]="['/chicago']" class="col btn btn-link">Chicago, IL</button>
+    </div>
+    <hr>
+    <router-outlet></router-outlet>
+  </div>
+</body>
+</html>
