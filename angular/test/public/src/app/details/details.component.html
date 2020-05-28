@@ -1,0 +1,15 @@
+<h2 class="text-center mb-4">Product Details</h2>
+<div *ngIf="product">
+    <div class="row text-center">
+        <p class="col-12 lead">Name: {{product.name}}</p>
+        <p class="col-12 lead">Quantity: {{product.quantity}}</p>
+        <p class="col-12 lead">Price: {{product.price}}</p>
+    </div>
+    <div class="row justify-content-center">
+        <button class="col-md-3 btn btn-danger" (click)="deleteProduct()">Delete</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <button class="col btn btn-link text-left" [routerLink]="['/products']">Home</button>
+</div>

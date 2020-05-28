@@ -1,0 +1,27 @@
+<h2 class="text-center mb-4">New Product</h2>
+<div class="row justify-content-center mb-2" *ngIf="errors">
+    <div class="col-md-6">
+        <p class="text-center" *ngFor="let error of errors | keyvalue">{{error.value}}</p>
+    </div>
+</div>
+<form (submit)="createProduct()">
+    <div class="form-group row justify-content-center align-items-center">
+        <label class="col-md-3">Name:</label>
+        <input (keyup)="validate($event)" type="text" class="col-md-3 form-control" name="name" [(ngModel)]="newProduct.name">
+    </div>
+    <div class="form-group row justify-content-center align-items-center">
+        <label class="col-md-3">Quantity:</label>
+        <input (keyup)="validate($event)" type="text" class="col-md-3 form-control" name="quantity" [(ngModel)]="newProduct.quantity">
+    </div>
+    <div class="form-group row justify-content-center align-items-center">
+        <label class="col-md-3">Price:</label>
+        <input (keyup)="validate($event)" type="text" class="col-md-3 form-control" name="price" [(ngModel)]="newProduct.price">
+    </div>
+    <div class="form-group row justify-content-center align-items-center">
+        <input [disabled]="disabled" type="submit" class="btn btn-primary col-md-3" value="Submit">
+    </div>
+</form>
+<hr>
+<div class="row">
+    <button class="col btn btn-link text-left" [routerLink]="['/products']">Home</button>
+</div>
